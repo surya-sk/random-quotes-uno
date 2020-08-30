@@ -107,6 +107,10 @@ namespace RandomQuotesUno
         {
             quotes = GetResponse().Result;
             DataContext = new Quotes() { By = quotes.By, Quote = quotes.Quote };
+            if(quotes.Quote.Length < 300)
+            {
+                Quote.TextWrapping = TextWrapping.Wrap;
+            }
         }
 
         /// <summary>
